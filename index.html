@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>chart</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a href="#" class="text-white mr-3"><i class="fas fa-align-left" id="sideicon"></i></a>
+                            <a class="navbar-brand text-white" href="#">Dashboard</a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#"><i class="fas fa-search text-white ml-4"></i></a></li>
+                            <li><a href="#"><i class="fas fa-wave-square text-white ml-4"></i></a></li>
+                            <li><a href="#"><i class="far fa-user text-white ml-4"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 col-sm-2 col-md-1 col-lg-2">
+                <div class="sidebar bg position-fixed ">
+                    <ul class="list-group">
+                        <li class="list-group-item bg-shade border-0 d-sm-block  d-md-none  d-lg-block"><a class="text-white text-decoration-none mb-4" href="#"><span class="mr-2">CT</span>CREATIVE TIM</a></li>
+                        <li class="list-group-item text-white bg-shade border-0 d-sm-block  d-md-none d-lg-block"><a class="text-white text-decoration-none mb-4" href="#dashboard"><span><i class="fas fa-chart-pie mr-3"></i></span>Dashboard</a></li>
+                        <li class="list-group-item text-white bg-shade border-0  d-sm-block d-md-none d-lg-block"><a class="text-white text-decoration-none mb-4" href="#echart"><span><i class="far fa-chart-bar mr-3"></i></i></span>echart</a></li>
+                        <li class="list-group-item text-white bg-shade border-0 d-sm-block  d-md-none d-lg-block"><a class="text-white text-decoration-none mb-4" href="#crud"><span><i class="fas fa-file-upload mr-3"></i></span>Crud Operation</a></li>
+
+                        <li class="list-group-item bg-shade border-0  align-center d-none d-sm-none d-md-block d-lg-none"><a class="text-white text-decoration-none mb-4" href="#">CT</a></li>
+                        <li class="list-group-item text-white bg-shade align-center  border-0 d-none d-sm-none d-md-block d-lg-none"><a class="text-white text-decoration-none" href="#dashboard"><i class="fas fa-chart-pie mr-3"></i></a></li>
+                        <li class="list-group-item text-white bg-shade align-center  border-0 d-none d-sm-none d-md-block d-lg-none"><a class="text-white text-decoration-none" href="#echart"><i class="fab fa-wpforms mr-3"></i></a></li>
+                        <li class="list-group-item text-white bg-shade align-center border-0 d-none d-sm-none d-md-block d-lg-none"><a class="text-white text-decoration-none" href="#crud"><i class="fas fa-file-upload mr-3"></i></a></li>
+                    </ul>
+                    <div id="navbar-close" class="hidden">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12  col-sm-12 col-md-11 col-lg-10">
+                <div class="wrapper" id="dashboard">
+                <div class="container-fluid">
+                    <div class="card card-bg">
+                       <div class="card-header">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="container">
+                                        <h6 class="card-category text-muted">Total Shipments</h6>
+                                        <h2 class="card-title text-white">Performance</h2>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="btn-group float-right">
+                                        <button type="button" class="btn  bg d-none d-lg-block text-white">Account</button>
+                                        <span><i class="far fa-user d-block d-lg-none btn-text ml-3"></i></span>
+                                        <button type="button" class="btn  border-danger btn-text d-none d-lg-block">Purchases</button>
+                                        <span><i class="fas fa-gift d-block d-lg-none btn-text ml-3"></i></span>
+                                        <button type="button" class="btn  border-danger btn-text d-none d-lg-block">Sessions</button>
+                                        <span><i class="fas fa-laptop d-block d-lg-none btn-text ml-3"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                        <div class="card-body">
+                            <canvas id="myChart" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-4">
+                            <div class="card card-bg mt-4">
+                                <div class="card-header">
+                                    <h6 class="card-category text-muted">Total Shipments</h6>
+                                    <h3 class="card-title text-white"><span class="text-primary mr-2"><i class="far fa-bell"></i></span>763,215</h3>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="myChart1" width="400" height="400"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-sm-12 col-md-4">
+                            <div class="card card-bg mt-4">
+                                <div class="card-header">
+                                    <h6 class="card-category text-muted">Daily sales</h6>
+                                    <h3 class="card-title text-white"><span class="text-info mr-2"><i class="fas fa-truck"></i></span>3,500</h3>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="myChart2" width="400" height="400"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4">
+                            <div class="card card-bg mt-4">
+                                <div class="card-header">
+                                    <h6 class="card-category text-muted">Completed Tasks</h6>
+                                    <h3 class="card-title text-white"><span class="text-success mr-2"><i class="fas fa-share-square"></i></span>12,100</h3>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="myChart3" width="400" height="400"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid" id="echart">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6">
+                            <div class="card card-bg mt-4">
+                                <div class="card-header">
+                                    <h6 class="card-category text-muted">Performance</h6>
+                                    <h3 class="card-title text-white"><span class="text-info mr-2"><i class="fas fa-chart-bar"></i></span>Total Orders</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div id="main" style="width: auto; min-height: 400px"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-6">
+                            <div class="card card-bg mt-4">
+                                <div class="card-header">
+                                    <h6 class="card-category text-muted">Products</h6>
+                                    <h3 class="card-title text-white"><span class="text-muted mr-2"><i class="fas fa-box"></i></span>7,700</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div id="container" style="width: auto; min-height: 400px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-6">
+                            <div class="card card-bg mt-4">
+                                <div class="card-header">
+                                    <h6 class="card-category text-muted">Website</h6>
+                                    <h3 class="card-title text-white"><span class="text-white mr-2"><i class="fas fa-laptop-code"></i></span>7,700</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div id="main1" style="width:auto; min-height: 400px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6">
+                            <div class="card card-bg mt-4">
+                                <div class="card-header">
+                                    <h6 class="card-category text-muted">GDP</h6>
+                                    <h3 class="card-title text-white"><span class="text-white mr-2"><i class="fab fa-creative-commons-share"></i></i></span>37,700</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div id="main2" style="width:auto; min-height: 400px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                
+                <!-- -------------------crud operations--------------------------------- -->
+                <div class="container-fluid" id="crud">
+                    <div class="bg1 my-3">
+                        <h2 class="text-center text-white">CRUD OPERATIONS</h2>
+                    </div>
+                    <div class="bgimg">
+                        <div class="container w-50 pt-5 bg2">
+                            <form  action="" id="form" name="form">
+                                <div class="form-group">
+                                    <label class="text-white" for="name">Name</label>
+                                    <input type="text" name="name" class="form-control" id="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="text-white" for="Age">Age</label>
+                                    <input type="number" name="age" class="form-control" id="age" required>
+                                </div>
+                                <div class="form-group">
+                                    <label  class="text-white"for="skills">Skills:</label>
+                                    <input type="text" name="skills" class="form-control" id="skills" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="text-white" for="designation">Designation:</label>
+                                    <input type="text"name="designation" class="form-control" id="designation" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="text-white" for="email">Email Id:</label>
+                                    <input type="email" name="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="form-group" id="formSubmit">
+                                    <input type="submit" id="submitbn" name="submit" value="submit" class="form-control  bg4">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="table-responsive">   
+                        <table class="table table-bordered mt-3 bg3" id="tableList">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Skills</th>
+                                    <th>Designation</th>
+                                    <th>Email Id</th>
+                                    <th>Operation</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts-en.common.js" integrity="sha256-1cSbMmHM/mglZwI1g59J6fA2ahwAaZayKxob0keiU1Y=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <script src="js/draft.js"></script>
+</body>
+</html>

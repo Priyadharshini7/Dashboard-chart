@@ -1,0 +1,96 @@
+/* styles for dashboard */
+
+.bg{
+    background: linear-gradient(0deg, #ff6491 0%, #ff8d72 100%) !important;
+}
+.card-bg{
+background: #27293d;
+}
+.text-primary {
+    color: #e14eca !important;
+}
+.sidebar{
+    height: 100%;
+}
+/* .primary{
+    background: linear-gradient(0deg, #ff6491 0%, #ff8d72 100%)!important;
+} */
+.bg-shade, .btn-shade{
+    background-color:transparent;
+}
+.btn-text, .border-danger{
+    color: #ff8d72!important;
+}
+
+/*styles for crud operation */
+
+.bgimg{
+    background-image: url(../images/bg2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg2{
+    background-color: #22585a70;
+}
+.form-control{
+    background-color: #4ebeca47;
+    border: transparent;
+    color: #00ffd4;
+}
+.btn-shade{
+    background-color: #2cc1e2a6;
+    color: #fff;
+}
+#delete, #edit{
+    border: 1px solid #fff;
+    outline: none;
+    background-color: #0ac7c7;
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+#submitbn{
+    width: 98px;
+}
+.bg3{
+    background-color: #51c9dc;
+}
+.bg4{
+    background-color: #08abb1c4;
+    color:#fff;
+}
+#Updateform{
+    background-color: #3adc3fcc;
+    border: none;
+    outline: none;
+    color:#fff;
+    width: 98px;
+}
+#formSubmit:hover{
+    transform:scaleY(1.1);
+}
+#Updateform:hover{
+    transform:scaleY(1.1);
+}
+input[type=text]:focus,input[type=number]:focus,input[type=email]:focus{
+    background-color: #5cceda47;
+    border: none;
+    outline: none;
+    color: #00ffd4;
+}
+input[type=submit]:focus{
+    background-color: #08abb1c4;
+}
+
+/* styles for mobile view dashboard */
+@media screen and (max-width: 768px){
+    .sidebar{
+        display: none;
+    }
+}
+.sidebar_active{
+    margin-left: 0;
+    height: 100%;
+    display: block;
+    z-index: 2;
+  }
